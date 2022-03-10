@@ -1,0 +1,29 @@
+Problem:
+
+Client wants to hit the Merchant.
+Client will do encryption and merchant will do decryption.
+Merchant will generate private key(used for encrypt) and public key(used for decrypt).
+
+
+Steps:
+
+Client will use the request body to calculate OAuth body hash using hashing algorithm SHA-256.
+
+Client will signed their "Signature based string" with private key to calculate OAuth Signature.
+
+Merchant will dencrypt using OAuth Signature 
+
+
+
+Calculation of body hash:
+
+{"status":"success"} - > calculate body hash using SHA-256 - > Oauth_Body_Hash = XXXX
+
+
+Calculation for Oauth_signature
+
+"Signature Based String"=POST&URL&oauth_body_hash%3DXXXX%26oauth_consumer_key%3DXXXX%26oauth_nonce%3DXXXX%26oauth_signature_method%3DRSA-SHA256%26oauth_timestamp%3DXXXX%26oauth_version%3DXXXX
+
+"Signature Based String" -> Using RSA 256 -> Oauth_Body_signature=XXXX
+
+then hit API using request body and set headers with "Authorization": OAuth oauth_consumer_key="XXXX",oauth_signature_method="RSA-SHA256",oauth_timestamp="XXXX",oauth_nonce="XXXX",oauth_version="1.0",oauth_body_hash="XXXX",oauth_signature="XXXX"'
