@@ -1,0 +1,10 @@
+
+AOP Programming:
+1. @Around Annotation - Favorite
+https://www.amitph.com/spring-aop-around-advice/
+
+2. Always use GSON tos serialize or deserialize json, It also applies spring annotation of class object.
+https://www.javadevjournal.com/spring-boot/gson-with-spring-boot/
+
+3. For adding extra things to the response, Use the filters in spring
+https://www.baeldung.com/spring-boot-add-filter
